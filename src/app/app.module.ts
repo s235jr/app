@@ -11,6 +11,7 @@ import {RecipeItemComponent} from './recipes/recipe-list/recipe-item/recipe-item
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
 import {FormsModule} from '@angular/forms';
+import {BasicHighlightDirective} from './basic-highlight.directive/BasicHighlightDirective';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule} from '@angular/forms';
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    BasicHighlightDirective
   ],
   imports: [
     BrowserModule,
