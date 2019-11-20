@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {ShoppingListService} from '../../shopping-list/shopping-list.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {RecipeService} from '../recipie.service';
 
 @Component({
@@ -19,8 +19,15 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params.id;
-    this.recipe = this.recipeService.getRecipe(id);
+    this.recipe = this.recipeService.getRecipe(1);
+    this.route.params.subscribe(
+      (params: Params) => {
+        const id = params['id'];
+        console.log('params ' + params.toString());
+        // this.recipe = this.recipeService.getRecipe(id);
+        console.log('id: ', id);
+      }
+    );
   }
 
   addIngredientsToShoppingList() {
