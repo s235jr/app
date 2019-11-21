@@ -9,8 +9,6 @@
     <app-recipe-item
       *ngFor="let recipeEL of recipes"
       [recipe]="recipeEL"
-      [routerLink]="['/recipes', recipeEL.id]"
     ></app-recipe-item>
   </div>
 </div>
-
