@@ -19,6 +19,7 @@ import {ShoppingListService} from './shopping-list/shopping-list.service';
 import {RecipeService} from './recipes/recipie.service';
 import {RecipeItemNotSelectedComponent} from './recipes/recipe-item-not-selected/recipe-item-not-selected.component';
 import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
+import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.componen
     UnlessDirective,
     DropdownDirective,
     RecipeItemNotSelectedComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

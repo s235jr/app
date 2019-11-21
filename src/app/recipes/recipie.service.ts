@@ -25,6 +25,15 @@ export class RecipeService {
       [
         new Ingredient('Skrzydełka', 25),
         new Ingredient('Marchewka', 5)
+      ]),
+    new Recipe(
+      3,
+      'Ciasto',
+      'Sernik',
+      'https://d3iamf8ydd24h9.cloudfront.net/pictures/articles/2018/08/98864-v-900x556.jpg',
+      [
+        new Ingredient('Ser', 22),
+        new Ingredient('Truskawki', 11)
       ])
   ];
 
