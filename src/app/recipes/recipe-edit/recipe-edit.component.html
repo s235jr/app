@@ -9,7 +9,7 @@
                   style="margin-right: 5px"
                   type="submit">Save
           </button>
-          <button class="btn btn-danger" type="button">Cancel</button>
+          <button (click)="onCancelEdit()" class="btn btn-danger" type="button">Cancel</button>
         </div>
       </div>
 
@@ -32,6 +32,7 @@
             <input class="form-control"
                    formControlName="imagePath"
                    id="imagePath"
+                   #imagePath
                    type="text">
           </div>
         </div>
@@ -39,7 +40,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <img class="img-responsive" src="">
+          <img [src]="imagePath.value" class="img-responsive">
         </div>
       </div>
       <div class="row">
@@ -68,7 +69,7 @@
               <input class="form-control" formControlName="amount" type="number">
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger" type="button">X</button>
+              <button (click)="onDeleteIngredient(i)" class="btn btn-danger" type="button">X</button>
             </div>
           </div>
           <hr>
