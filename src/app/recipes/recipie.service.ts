@@ -1,11 +1,13 @@
 import {Recipe} from './recipe.model';
 import {Ingredient} from '../shared/Ingredient';
+import {Subject} from 'rxjs';
 
 export class RecipeService {
 
+  recipesChanged = new Subject();
+
   private recipes: Recipe[] = [
     new Recipe(
-      1,
       'Żeberka',
       'Pieczone żeberka',
       'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg',
@@ -14,7 +16,6 @@ export class RecipeService {
         new Ingredient('Miód', 2)
       ]),
     new Recipe(
-      2,
       'Skrzydełka',
       'Pieczone skrzydełka z warzywami',
       'https://cdn-image.foodandwine.com/sites/default/files/styles/medium_2x/public/' +
@@ -24,7 +25,6 @@ export class RecipeService {
         new Ingredient('Marchewka', 5)
       ]),
     new Recipe(
-      3,
       'Ciasto',
       'Sernik',
       'https://d3iamf8ydd24h9.cloudfront.net/pictures/articles/2018/08/98864-v-900x556.jpg',
@@ -39,11 +39,17 @@ export class RecipeService {
   }
 
   getRecipe(id: number) {
-    return this.getRecipes().find(
-      (s) => {
-        return s.id === id;
-      }
-    );
+    return this.recipes[id];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
   }
 
 }
